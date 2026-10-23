@@ -1,0 +1,20 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[redirects]]
+  from = "https://www.oa-commerce.com/*"
+  to = "https://oa-commerce.com/:splat"
+  status = 301
+  force = true
